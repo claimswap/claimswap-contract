@@ -19,6 +19,10 @@ cypress
 |UniswapV2Factory| [0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c](https://scope.klaytn.com/account/0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c)|
 |UniswapV2Router02| [0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D](https://scope.klaytn.com/account/0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D)|
 |WKLAY| [0xe4f05A66Ec68B54A58B17c22107b02e0232cC817](https://scope.klaytn.com/account/0xe4f05A66Ec68B54A58B17c22107b02e0232cC817)|
+|PoolVote| [0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9](https://scope.klaytn.com/account/0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9)|
+|Governonance| [0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49](https://scope.klaytn.com/account/0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49)|
+|Zap| [0x345a12ff521D21e1567F12e8278274E19F701DCb](https://scope.klaytn.com/account/0x345a12ff521D21e1567F12e8278274E19F701DCb)|
+
 
 baobab
 | Contract   | Contract Address |
