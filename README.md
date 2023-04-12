@@ -22,6 +22,7 @@ cypress
 |PoolVote| [0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9](https://scope.klaytn.com/account/0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9)|
 |Governance| [0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49](https://scope.klaytn.com/account/0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49)|
 |Zap| [0x345a12ff521D21e1567F12e8278274E19F701DCb](https://scope.klaytn.com/account/0x345a12ff521D21e1567F12e8278274E19F701DCb)|
+|CLA V2 LP USDC-USDT| [0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6](https://scope.klaytn.com/account/0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6) |
 
 
 baobab
