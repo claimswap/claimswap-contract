@@ -14,15 +14,16 @@ cypress
 |Treasury| [0x2aFE4695a8eF6bbE21459E7B5AbC31ad1364D2dC](https://scope.klaytn.com/account/0x2aFE4695a8eF6bbE21459E7B5AbC31ad1364D2dC)|
 |MasterChef| [0x02703E13b5D3d3056AC9321983B44A2cc065bB22](https://scope.klaytn.com/account/0x02703E13b5D3d3056AC9321983B44A2cc065bB22)|
 |ClsToken| [0x5F5dEC0d6402408eE81f52ab985a9C665b6e6010](https://scope.klaytn.com/account/0x5F5dEC0d6402408eE81f52ab985a9C665b6e6010)|
-|FeeDistributor| [0x31E14C4376355EBeF030ead7cEf6Fd60DA9b2684](https://scope.klaytn.com/account/0x31E14C4376355EBeF030ead7cEf6Fd60DA9b2684)|
 |FeeDistributorV2| [0x747F36397D8266f6b2cD1D473Be7ee754F864495](https://scope.klaytn.com/account/0x747F36397D8266f6b2cD1D473Be7ee754F864495)|
 |UniswapV2Factory| [0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c](https://scope.klaytn.com/account/0x3679c3766E70133Ee4A7eb76031E49d3d1f2B50c)|
-|UniswapV2Router02| [0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D](https://scope.klaytn.com/account/0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D)|
+|UniswapV2Router02(Deprecated, Use ClaimswapRouter)| [0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D](https://scope.klaytn.com/account/0xEf71750C100f7918d6Ded239Ff1CF09E81dEA92D)|
 |WKLAY| [0xe4f05A66Ec68B54A58B17c22107b02e0232cC817](https://scope.klaytn.com/account/0xe4f05A66Ec68B54A58B17c22107b02e0232cC817)|
 |PoolVote| [0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9](https://scope.klaytn.com/account/0x6ee1a9d6c2c9e4f08efb82372bad7ffa89fe99c9)|
 |Governance| [0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49](https://scope.klaytn.com/account/0xD8AbfDF81b33E1B682A360BE2EA4de9852629D49)|
 |Zap| [0x345a12ff521D21e1567F12e8278274E19F701DCb](https://scope.klaytn.com/account/0x345a12ff521D21e1567F12e8278274E19F701DCb)|
-|CLA V2 LP USDC-USDT| [0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6](https://scope.klaytn.com/account/0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6) |
+|V2Factory| [0x485EaC14fAFB515f16f87dA5e4B59018546A335E](https://scope.klaytn.com/account/0x485EaC14fAFB515f16f87dA5e4B59018546A335E)|
+|ClaimswapRouter | [0xF7BF3499Df413aC09C4BC8F7521EB4953B5f7bda](https://scope.klaytn.com/account/0xF7BF3499Df413aC09C4BC8F7521EB4953B5f7bda)|
+|CLA V2 LP USDC-USDT(StableSwap)| [0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6](https://scope.klaytn.com/account/0xF8C8F1346c2f99F9Dd250e7986477Fb13A7af0D6) |
 
 
 baobab
