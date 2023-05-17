@@ -2,6 +2,7 @@ pragma solidity ^0.8.10;
 
 import {LibAppStorage, AppStorage} from "../libraries/LibAppStorage.sol";
 import {LibStableSwap, StableSwapStorage, FEE_DENOMINATOR, PRECISION} from "../libraries/LibStableSwap.sol";
+import {LibAffiliate, AffiliateStorage} from "../libraries/LibAffiliate.sol";
 import {IERC20} from "@openzeppelin-4.8.1/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin-4.8.1/contracts/token/ERC20/utils/SafeERC20.sol";
 
@@ -754,5 +755,64 @@ contract StableSwap2PoolFacet {
             emit AddLiquidity(msg.sender, amounts, fees, D1, s.totalSupply);
         }
         return mint_amount;
+    }
+
+
+    /// @notice Perform an exchange between two coins. (curve docs)
+    /// @param i: Index value for the coin to send
+    /// @param j: Index value of the coin to receive
+    /// @param dx: Amount of coin i to send
+    /// @param min_dy: Minimum amount of coin j to receive
+    /// @return Returns the amount of coin j received. Index values can be found via the coins public getter method
+    function exchangeForAffiliates(
+        uint256 i,
+        uint256 j,
+        uint256 dx,
+        uint256 min_dy
+    ) external returns (uint256) {
+        StableSwapStorage storage ss = LibStableSwap.diamondStorage();
+        require(!ss.paused, "Paused");
+        {
+            address iAddress = ss.coins[i];
+            IERC20(iAddress).safeTransferFrom(msg.sender, address(this), dx);
+        }
+        uint256[] memory xp = _xp_mem(ss.RATES, ss.balances);
+        uint256 x = xp[i] + (dx * ss.RATES[i]) / PRECISION;
+        uint256 y = _get_y(i, j, x, xp);
+
+        uint256 dy = xp[j] - y - 1; //  -1 just in case there were some rounding errors
+        uint256 dy_fee = (dy * ss.fee) / FEE_DENOMINATOR;
+
+        // Convert all to real units
+        dy = ((dy - dy_fee) * PRECISION) / ss.RATES[j];
+        require(dy >= min_dy, "SlippageError");
+
+        // Check if msg.sender is affiliate address
+        // And if so, Calculate affiliate fee
+        uint256 dy_affiliate_fee;
+        {
+            AffiliateStorage storage afs = LibAffiliate.diamondStorage();
+            uint256 affiliateFee = afs.affiliateFee[msg.sender];
+            require(affiliateFee != 0, "Not from affiliate address");
+            dy_affiliate_fee = (dy_fee * affiliateFee) / FEE_DENOMINATOR;
+            dy_affiliate_fee = (dy_affiliate_fee * PRECISION) / ss.RATES[j];
+            afs.totalAffiliateFee[j] += dy_affiliate_fee;
+            afs.affiliateBalance[msg.sender][j] += dy_affiliate_fee;
+        }
+
+        uint256 dy_admin_fee = (dy_fee * ss.admin_fee) / FEE_DENOMINATOR;
+        dy_admin_fee = (dy_admin_fee * PRECISION) / ss.RATES[j];
+
+        // Change balances exactly in same way as we change actual ERC20 coin amounts
+        ss.balances[i] += dx;
+        // When rounding errors happen, we undercharge admin fee in favor of LP
+        ss.balances[j] -= dy + dy_admin_fee + dy_affiliate_fee;
+
+        {
+            address jAddress = ss.coins[j];
+            IERC20(jAddress).safeTransfer(msg.sender, dy);
+        }
+        emit TokenExchange(msg.sender, i, dx, j, dy);
+        return dy;
     }
 }
